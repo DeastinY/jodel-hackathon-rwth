@@ -42,10 +42,9 @@ def tokenize(posts):
     all_stop = json.loads(FILE_STOPWORDS.read_text(encoding="utf-8"))
     all_stop.extend(stopwords.words('german'))
     tokenizer = RegexpTokenizer(r'\w+')
-    stemmer = GermanStemmer()
     for post in tqdm(posts):
         tokens = tokenizer.tokenize(" ".join(word_tokenize(post["message"], language="german")))
-        post["tokens_ns"] = [stemmer.stem(p) for p in tokens if not p.lower() in all_stop]
+        post["tokens_ns"] = [p for p in tokens if not p.lower() in all_stop]
         post["tokens_ns_lower"] = [p.lower() for p in post["tokens_ns"]]
         post["tokens_all"] = [p for p in word_tokenize(post["message"])]
     return posts
