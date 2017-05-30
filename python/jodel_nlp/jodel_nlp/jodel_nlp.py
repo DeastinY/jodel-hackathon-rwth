@@ -13,6 +13,7 @@ from nltk.corpus import stopwords
 
 logging.basicConfig(level=logging.DEBUG)
 
+FILE_STOPWORDS = Path("../stopwords.json")
 FILE_DB = Path("../dump.csv")
 PATH_OUT = Path("../output")
 PATH_OUT.mkdir(exist_ok=True)
@@ -37,10 +38,12 @@ def extract():
 
 def tokenize(posts):
     logging.info("Tokenizing")
+    all_stop = json.loads(FILE_STOPWORDS.read_text(encoding="utf-8"))
+    all_stop.extend(stopwords.words('german'))
     tokenizer = RegexpTokenizer(r'\w+')
     for post in tqdm(posts):
         tokens = tokenizer.tokenize(" ".join(word_tokenize(post["message"], language="german")))
-        post["tokens_ns"] = [p for p in tokens if not p.lower() in stopwords.words('german')]
+        post["tokens_ns"] = [p for p in tokens if not p.lower() in all_stop]
         post["tokens_ns_lower"] = [p.lower() for p in post["tokens_ns"]]
         post["tokens_all"] = [p for p in word_tokenize(post["message"])]
     return posts
@@ -72,6 +75,7 @@ if __name__ == '__main__':
     parser.add_argument("--tokenize", action="store_true")
     parser.add_argument("--save", action="store_true")
     parser.add_argument("--ner", action="store_true")
+    parser.add_argument("--all", action="store_true")
     args = vars(parser.parse_args())
 
     if FILE_OUT.exists():
@@ -85,6 +89,11 @@ if __name__ == '__main__':
     if args['tokenize']:
         posts = tokenize(posts)
     if args['ner']:
-        posts = ner(posts)
+        posts, all_ne = ner(posts)
+    if args['all']:
+        posts = extract()
+        posts = tokenize(posts)
+        posts, _ = ner(posts)
+        save(posts)
     if args['save']:
         save(posts)
