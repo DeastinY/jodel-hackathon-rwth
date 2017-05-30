@@ -1,0 +1,422 @@
+[
+  [
+    {
+      "term": "geld",
+      "probability": 0.0079
+    },
+    {
+      "term": "liebe",
+      "probability": 0.0069
+    },
+    {
+      "term": "lebens",
+      "probability": 0.0069
+    },
+    {
+      "term": "frauen",
+      "probability": 0.0068
+    },
+    {
+      "term": "probleme",
+      "probability": 0.0057
+    },
+    {
+      "term": "bier",
+      "probability": 0.0053
+    },
+    {
+      "term": "frisch",
+      "probability": 0.0049
+    },
+    {
+      "term": "kleine",
+      "probability": 0.0047
+    },
+    {
+      "term": "studium",
+      "probability": 0.0047
+    },
+    {
+      "term": "student",
+      "probability": 0.0043
+    }
+  ],
+  [
+    {
+      "term": "essen",
+      "probability": 0.0075
+    },
+    {
+      "term": "schlafen",
+      "probability": 0.0074
+    },
+    {
+      "term": "tag",
+      "probability": 0.0073
+    },
+    {
+      "term": "tipps",
+      "probability": 0.0056
+    },
+    {
+      "term": "scheiße",
+      "probability": 0.0049
+    },
+    {
+      "term": "lass",
+      "probability": 0.0045
+    },
+    {
+      "term": "mücken",
+      "probability": 0.0043
+    },
+    {
+      "term": "brauche",
+      "probability": 0.0041
+    },
+    {
+      "term": "kuscheln",
+      "probability": 0.0039
+    },
+    {
+      "term": "voll",
+      "probability": 0.0038
+    }
+  ],
+  [
+    {
+      "term": "pokemon",
+      "probability": 0.032
+    },
+    {
+      "term": "pokémon",
+      "probability": 0.015
+    },
+    {
+      "term": "pokemongo",
+      "probability": 0.0094
+    },
+    {
+      "term": "fangen",
+      "probability": 0.0062
+    },
+    {
+      "term": "läufts",
+      "probability": 0.0052
+    },
+    {
+      "term": "frage",
+      "probability": 0.0046
+    },
+    {
+      "term": "leute",
+      "probability": 0.0046
+    },
+    {
+      "term": "jhj",
+      "probability": 0.0045
+    },
+    {
+      "term": "endlich",
+      "probability": 0.0042
+    },
+    {
+      "term": "spaß",
+      "probability": 0.004
+    }
+  ],
+  [
+    {
+      "term": "bier",
+      "probability": 0.012
+    },
+    {
+      "term": "lust",
+      "probability": 0.0096
+    },
+    {
+      "term": "zeit",
+      "probability": 0.0064
+    },
+    {
+      "term": "grad",
+      "probability": 0.0061
+    },
+    {
+      "term": "abend",
+      "probability": 0.006
+    },
+    {
+      "term": "partys",
+      "probability": 0.0056
+    },
+    {
+      "term": "leute",
+      "probability": 0.0052
+    },
+    {
+      "term": "woche",
+      "probability": 0.0051
+    },
+    {
+      "term": "fahren",
+      "probability": 0.0045
+    },
+    {
+      "term": "super",
+      "probability": 0.0045
+    }
+  ],
+  [
+    {
+      "term": "lernen",
+      "probability": 0.012
+    },
+    {
+      "term": "tag",
+      "probability": 0.01
+    },
+    {
+      "term": "klausur",
+      "probability": 0.0081
+    },
+    {
+      "term": "jahre",
+      "probability": 0.0076
+    },
+    {
+      "term": "schlafen",
+      "probability": 0.0071
+    },
+    {
+      "term": "zeit",
+      "probability": 0.0066
+    },
+    {
+      "term": "menschen",
+      "probability": 0.0062
+    },
+    {
+      "term": "schlaf",
+      "probability": 0.0057
+    },
+    {
+      "term": "lieben",
+      "probability": 0.0053
+    },
+    {
+      "term": "mama",
+      "probability": 0.0051
+    }
+  ],
+  [
+    {
+      "term": "jodel",
+      "probability": 0.058
+    },
+    {
+      "term": "leute",
+      "probability": 0.0085
+    },
+    {
+      "term": "jodler",
+      "probability": 0.0077
+    },
+    {
+      "term": "liebe",
+      "probability": 0.007
+    },
+    {
+      "term": "karma",
+      "probability": 0.0067
+    },
+    {
+      "term": "poste",
+      "probability": 0.0063
+    },
+    {
+      "term": "kommentare",
+      "probability": 0.0062
+    },
+    {
+      "term": "bitte",
+      "probability": 0.0058
+    },
+    {
+      "term": "op",
+      "probability": 0.0049
+    },
+    {
+      "term": "handy",
+      "probability": 0.0047
+    }
+  ],
+  [
+    {
+      "term": "portugal",
+      "probability": 0.051
+    },
+    {
+      "term": "finale",
+      "probability": 0.037
+    },
+    {
+      "term": "wales",
+      "probability": 0.027
+    },
+    {
+      "term": "ronaldo",
+      "probability": 0.026
+    },
+    {
+      "term": "bale",
+      "probability": 0.023
+    },
+    {
+      "term": "em",
+      "probability": 0.02
+    },
+    {
+      "term": "spiele",
+      "probability": 0.019
+    },
+    {
+      "term": "deutschland",
+      "probability": 0.018
+    },
+    {
+      "term": "frankreich",
+      "probability": 0.0089
+    },
+    {
+      "term": "sieg",
+      "probability": 0.0086
+    }
+  ],
+  [
+    {
+      "term": "you",
+      "probability": 0.016
+    },
+    {
+      "term": "do",
+      "probability": 0.013
+    },
+    {
+      "term": "ronaldo",
+      "probability": 0.01
+    },
+    {
+      "term": "me",
+      "probability": 0.0097
+    },
+    {
+      "term": "to",
+      "probability": 0.0089
+    },
+    {
+      "term": "it",
+      "probability": 0.0088
+    },
+    {
+      "term": "stehen",
+      "probability": 0.008
+    },
+    {
+      "term": "of",
+      "probability": 0.008
+    },
+    {
+      "term": "hubschrauber",
+      "probability": 0.008
+    },
+    {
+      "term": "na",
+      "probability": 0.0079
+    }
+  ],
+  [
+    {
+      "term": "sex",
+      "probability": 0.015
+    },
+    {
+      "term": "freund",
+      "probability": 0.013
+    },
+    {
+      "term": "frauen",
+      "probability": 0.011
+    },
+    {
+      "term": "freundin",
+      "probability": 0.0096
+    },
+    {
+      "term": "männer",
+      "probability": 0.0087
+    },
+    {
+      "term": "lebens",
+      "probability": 0.0079
+    },
+    {
+      "term": "beziehung",
+      "probability": 0.0075
+    },
+    {
+      "term": "richtig",
+      "probability": 0.0073
+    },
+    {
+      "term": "gefühl",
+      "probability": 0.0073
+    },
+    {
+      "term": "jungs",
+      "probability": 0.007
+    }
+  ],
+  [
+    {
+      "term": "schlafen",
+      "probability": 0.02
+    },
+    {
+      "term": "uhr",
+      "probability": 0.01
+    },
+    {
+      "term": "lörres",
+      "probability": 0.0097
+    },
+    {
+      "term": "jodel",
+      "probability": 0.0075
+    },
+    {
+      "term": "kurz",
+      "probability": 0.0073
+    },
+    {
+      "term": "abend",
+      "probability": 0.0068
+    },
+    {
+      "term": "nachts",
+      "probability": 0.0064
+    },
+    {
+      "term": "zimmer",
+      "probability": 0.0054
+    },
+    {
+      "term": "bitte",
+      "probability": 0.0054
+    },
+    {
+      "term": "mitbewohner",
+      "probability": 0.0051
+    }
+  ]
+]

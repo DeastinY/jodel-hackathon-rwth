@@ -3,8 +3,7 @@ const http = require('https'),
   URL = require('url'),
   mongoose = require('mongoose'),
   _config = `./config.json`,
-  __baseurl = `https://api.go-tellm.com/api/v2`,
-  __baseurl3 = `https://api.go-tellm.com/api/v3`;
+  __baseurl,__baseurl3;
 mongoose.Promise = global.Promise;
 let c = 0;
 
@@ -32,10 +31,22 @@ const App = class App {
     this.client = null;
     this.config = config;
     this.config.interval = this.config.interval || 5000;
+
+    __baseurl = config.apiv2;
+    __baseurl3 = config.apiv3;
     mongoose.connect(config.db);
     this.db = mongoose.connection;
     const mod_Jodel = mongoose.model('Jodel', Jodel);
     this.run();
+  }
+  getURL(name, repl={}) {
+    let url = `${this.config[name]}`;
+    repl.V3 = __baseurl3;
+    repl.V2 = __baseurl;
+    for(const key in repl) {
+      url = url.replace(`%${key}%`, repl[key]);
+    }
+    return url;
   }
   async run() {
     console.log(`running at ${60/(this.config.interval/1000)}RPM`);
@@ -103,10 +114,10 @@ const App = class App {
   }
   async getPostDetails(id) {
     console.log(`GET DETAILS FOR ${id}`)
-    return this.fetch(`${__baseurl3}/posts/${id}/details?details=true`).catch(console.error);
+    return this.fetch(this.getURL('detail',{ID:id})).catch(console.error);
   }
   async getPosts() {
-    return this.fetch(`${__baseurl}/posts`).catch(console.error);
+    return this.fetch(this.getURL('list')).catch(console.error);
   }
   fetch(url, headers={}, method='GET') {
     url = URL.parse(url);
