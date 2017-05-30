@@ -1,0 +1,15 @@
+{
+  "name": "node-jodel-crawler",
+  "version": "1.0.0",
+  "description": "Node Jodel Crawler",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "author": "luthor",
+  "license": "GPL-3.0",
+  "dependencies": {
+    "mongoose": "^4.10.4"
+  }
+}

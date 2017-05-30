@@ -12,12 +12,13 @@
     "url": "https://git.lsys.ac/hackathon/jodel.git"
   },
   "author": "luthor",
-  "license": "GGPL",
+  "license": "GPL-3.0",
   "dependencies": {
     "fs": "0.0.1-security",
     "http": "0.0.0",
     "https": "^1.0.0",
     "jodel-api": "^1.0.3",
+    "lda": "^0.1.9",
     "natural": "^0.5.1",
     "url": "^0.11.0"
   }

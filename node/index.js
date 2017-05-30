@@ -2,6 +2,7 @@ const natural = require('natural'),
   http = require('https'),
   fs = require('fs'),
   URL = require('url'),
+  {topics} = require('./analytics/lda.js'),
   _config = `./config.json`,
   __baseurl = `https://api.go-tellm.com/api/v2`;
 
@@ -9,7 +10,10 @@ const App = class App {
   constructor(config) {
     this.client = null;
     this.config = config;
-    this.getPosts().then(console.log)
+    this.getPosts().then(posts=>{
+      console.log(posts.posts.length)
+      console.log(topics(posts.posts.map(post=>post.message)))
+    }).catch(e=>console.error(e))
   }
   async getPosts() {
     return this.fetch(`${__baseurl}/posts`).catch(console.error);
