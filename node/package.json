@@ -12,5 +12,8 @@
     "url": "https://git.lsys.ac/hackathon/jodel.git"
   },
   "author": "luthor",
-  "license": "GGPL"
+  "license": "GGPL",
+  "dependencies": {
+    "natural": "^0.5.1"
+  }
 }
