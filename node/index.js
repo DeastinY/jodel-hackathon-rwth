@@ -10,7 +10,7 @@ const App = class App {
     this.init(...c);
   }
   fetch(url, headers, method='GET') {
-    url = URL.parse(url);console.log(url);
+    url = URL.parse(url);
     let data = [];
     return new Promise((resolve,reject)=>{
       http.request({
