@@ -7,6 +7,7 @@ import logging
 import argparse
 from pathlib import Path
 from nltk.tag.stanford import StanfordNERTagger
+from nltk.tokenize import RegexpTokenizer
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
 
@@ -36,8 +37,11 @@ def extract():
 
 def tokenize(posts):
     logging.info("Tokenizing")
+    tokenizer = RegexpTokenizer(r'\w+')
     for post in tqdm(posts):
-        post["tokens_ns"] = [p for p in word_tokenize(post["message"]) if not p in stopwords.words('german')]
+        tokens = tokenizer.tokenize(" ".join(word_tokenize(post["message"], language="german")))
+        post["tokens_ns"] = [p for p in tokens if not p.lower() in stopwords.words('german')]
+        post["tokens_ns_lower"] = [p.lower() for p in post["tokens_ns"]]
         post["tokens_all"] = [p for p in word_tokenize(post["message"])]
     return posts
 
@@ -47,16 +51,13 @@ def ner(posts):
     logging.info("Extracting NER")
     ner_tagger = StanfordNERTagger(model_filename="/home/ric/stanford/models/ner/german.conll.hgc_175m_600.crf.ser.gz")
     all_ne = set()
-    for p in tqdm(posts[:100]):
-        tagged = ner_tagger.tag(p["tokens_ns"])
-        named_entities = [t for t in tagged if t[1] != 'O']
-        p['tagged'] = tagged
-        p['named_entities'] = named_entities
-        for n in named_entities:
-            all_ne.add(n[0])
+    all_messages = [p["tokens_ns"] for p in posts]
+    for i, tag in enumerate(ner_tagger.tag_sents(all_messages)):
+        posts[i]["NER"] = tag
+        for n in tag:
+            all_ne.add(n)
     all_ne = list(all_ne)
     logging.info(f"Found {len(all_ne)} unique entities.")
-    logging.debug(all_ne)
     return posts, list(all_ne)
 
 
