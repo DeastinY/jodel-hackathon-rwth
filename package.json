@@ -1,0 +1,16 @@
+{
+  "name": "node-whatever",
+  "version": "1.0.0",
+  "description": "let's do things and watch things happen",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://git.lsys.ac/hackathon/jodel.git"
+  },
+  "author": "luthor",
+  "license": "ISC"
+}
