@@ -1,4 +1,4 @@
+setuptools==33.1.1
 cryptography==1.7.1
 nltk==3.2.2
-setuptools==33.1.1
 PyYAML==3.12
