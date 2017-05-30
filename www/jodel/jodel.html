@@ -1,0 +1,105 @@
+<html>
+<head>
+    <title>Word Cloud</title>
+    <script src="lib/d3/d3.js"></script>
+    <script src="lib/d3/d3.layout.cloud.js"></script>
+    <script src="d3.wordcloud.js"></script>
+    <script src="d3.layout.cloud.js"></script>
+
+</head>
+<body>
+<script>
+    const ranges = [
+        '\ud83c[\udf00-\udfff]', // U+1F300 to U+1F3FF
+        '\ud83d[\udc00-\ude4f]', // U+1F400 to U+1F64F
+        '\ud83d[\ude80-\udeff]', // U+1F680 to U+1F6FF
+        ' ', // Also allow spaces
+    ].join('|');
+
+    const removeEmoji = str => str.replace(new RegExp(ranges, 'g'), '');
+    const isOnlyEmojis = str => !removeEmoji(str).length;
+
+    var words = {"Felix":1};
+    addToWords = function(word) {
+        if(words[word]) {
+            words[word] = words[word]+1;
+        } else {
+            words[word] = 1;
+        }
+    };
+
+    d3.json("ner.json", function (json) {
+
+        json.forEach(function(data){
+            data.NER.forEach(function(word) {
+                addToWords((word[0]).toLowerCase());
+            })
+        });
+        json.forEach(function(data){
+            data.tokens_all.forEach(function(word) {
+                if(isOnlyEmojis(word)) {
+                    addToWords(word);
+                }
+            })
+        });
+
+        words["😂"] = 126*1.5;
+
+        words = Object.keys(words).map(function(word){
+            return {"text": word, "size":words[word]/4};
+        });
+
+        console.log("Number of words: " + words.length);
+
+        words = words.sort((a,b)=>b.size-a.size);
+
+
+        words = words.filter(word=>word.size>=words[700].size);
+
+        console.log("Number of words: " + words.length);
+
+
+        var fill = d3.scale.category20c();
+
+        var layout = d3.layout.cloud()
+            .size([1400, 800])
+            .words(words)
+            .padding(1)
+            .spiral(function(size){
+                var e = size[0] / size[1];
+                return function(t) {
+                    return [e * (t *= .1) * Math.cos(t), t * Math.sin(t)];
+                };
+            })
+            .rotate(function() { return 0; })
+            .font("Impact")
+            .fontSize(function(d) { return d.size; })
+            .on("end", draw);
+
+        layout.start();
+
+        function draw(words) {
+            d3.select("body").append("svg")
+                .attr("width", layout.size()[0])
+                .attr("height", layout.size()[1])
+                .append("g")
+                .attr("transform", "translate(" + layout.size()[0] / 2 + "," + layout.size()[1] / 2 + ")")
+                .selectAll("text")
+                .data(words)
+                .enter().append("text")
+                .style("font-size", function(d) { return d.size + "px"; })
+                .style("font-family", "Impact")
+                .style("fill", function(d, i) { return fill(i); })
+                .attr("text-anchor", "middle")
+                .attr("transform", function(d) {
+                    return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
+                })
+                .text(function(d) { return d.text; });
+        }
+
+    });
+
+
+</script>
+</body>
+</html>
