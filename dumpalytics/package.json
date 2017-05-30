@@ -7,10 +7,6 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://git.lsys.ac/hackathon/jodel.git"
-  },
   "author": "luthor",
   "license": "GPL-3.0",
   "dependencies": {
